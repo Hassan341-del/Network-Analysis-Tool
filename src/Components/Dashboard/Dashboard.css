@@ -1,0 +1,37 @@
+.page-title, .recent-scrapp, .scrap-data {
+    margin: 1.25rem 0;
+}
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.total-account, .active-account, .blocked-account, .total-scrap-followers, .total-scrap-followings {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 20px;
+}
+.account-name {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 20px;
+}
+@media(min-width:320px) and (max-width:1023px) {
+    .page-title, .recent-scrapp {
+        font-size: 25px;
+    }
+    .parent {
+        grid-template-columns: 1fr;
+    }
+    .mbl-margin {
+        margin: 0 1rem !important;
+    }
+    .active-account, .total-scrap-followings, .account-name-2 {
+        margin: 0 !important;
+    }
+    .total-account {
+        margin-top: 1.5rem !important;
+    }
+    .page-title, .active-account, .total-scrap-followers, .recent-scrapp, .account-name-2 {
+        margin: 1.5rem 0 !important;
+    }
+}

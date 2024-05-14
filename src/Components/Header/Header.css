@@ -1,0 +1,19 @@
+.logo {
+    font-size: 25px !important;
+}
+.nav-link, .logo {
+    padding-right: 30px !important;
+    color: white !important;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+}
+.white-bars {
+    color: white; /* Set the bars' color to white */
+}
+@media(min-width:320px) and (max-width:1023px) {
+    .logo, .nav-link {
+        font-size: 18px !important;
+    }
+}  
