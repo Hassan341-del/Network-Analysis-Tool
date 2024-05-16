@@ -7,12 +7,11 @@ import './Header.css';
 export default function Header(props) {
 const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!props.token || ) {
-  //     navigate('/login');
-  //   }
-  // }, [props.token]);
-
+  useEffect(() => {
+    if (!props.token) {
+      navigate('/login');
+    }
+  }, [props.token]);
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-dark'>
@@ -29,7 +28,7 @@ const navigate = useNavigate();
                 <>
                   <Link to='/dashboard' className='nav-link'>Dashboard</Link>
                   <Link to='/scrapping' className='nav-link'>Scrapping</Link>
-                  <Link to='/login' className='nav-link' onClick={props.logout}>Log Out</Link>
+                  <Link className='nav-link' onClick={props.logout}>Log Out</Link>
                 </>
               ) : (
                 <Link to='/login' className='nav-link'>Login</Link>
