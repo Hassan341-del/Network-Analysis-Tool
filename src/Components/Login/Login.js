@@ -11,8 +11,8 @@ export default function Login(props) {
                 <h1 className='card-title text-center mb-5 fw-bold fs-2'>Log In</h1>
                 <form action="" onSubmit={props.login}>
                   <div className="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput email" name='email' placeholder="" required />
-                    <label htmlFor="floatingInput">Email address</label>
+                    <input type="name" class="form-control" id="floatingInput email" name='username' placeholder="" required />
+                    <label htmlFor="floatingInput">User Name</label>
                   </div>
                   <div className="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingPassword password" name='password' placeholder="" required />
