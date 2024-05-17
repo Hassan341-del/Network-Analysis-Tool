@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {Routes, Route, useNavigate, useLocation} from 'react-router-dom'
 import Header from './Header/Header'
 import Home from './Home/Home'
 import Dashboard from './Dashboard/Dashboard'
@@ -10,12 +10,20 @@ export default function Container() {
   
 const [token, setToken] = useState(null)
 const navigate = useNavigate();
+
 useEffect(() => {
   const storedToken = localStorage.getItem('token');
   if (storedToken) {
     setToken(storedToken);
   }
 }, []);
+
+// useEffect(() => {
+//   // Redirect to login page if token is null and user tries to access protected routes
+//   if (!token && ['/dashboard', '/scrapping', '/results'].includes(pathname)) {
+//     navigate('/login');
+//   }
+// }, [token, location, navigate]);
 
 const loginHandler = (e) => {
   e.preventDefault()
@@ -53,17 +61,17 @@ const logoutHandler = () => {
 
 const scrapping = (e) => {
   e.preventDefault()
-  navigate('/result')
+  navigate('/results')
 }
   return (
     <>
       <Header token={token} logout={logoutHandler} />
       <Routes>
-          <Route path='/' element={ <Home />} />
-          <Route path='/login' element={ <Login login={loginHandler} />} />
-          <Route path='/dashboard' element={ <Dashboard />} />
-          <Route path='/scrapping' element={ <Scrapping scrapping={scrapping} />} />
-          <Route path='/results' element={ <Result />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login login={loginHandler} />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/scrapping' element={<Scrapping scrapping={scrapping} />} />
+            <Route path='/results' element={<Result />} />
       </Routes>
     </>
   )

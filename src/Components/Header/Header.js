@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
 
@@ -6,12 +6,23 @@ import './Header.css';
 
 export default function Header(props) {
 const navigate = useNavigate();
+const [token, setToken] = useState(null);
+const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!props.token) {
+useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+    }
+    setLoading(false);
+  }, []);
+
+useEffect(() => {
+    if (!token && !loading) {
       navigate('/login');
     }
-  }, [props.token]);
+  }, [token, loading, navigate]);
+
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-dark'>
@@ -28,7 +39,8 @@ const navigate = useNavigate();
                 <>
                   <Link to='/dashboard' className='nav-link'>Dashboard</Link>
                   <Link to='/scrapping' className='nav-link'>Scrapping</Link>
-                  <Link className='nav-link' onClick={props.logout}>Log Out</Link>
+                  <Link to='/login' className='nav-link' onClick={props.logout}>Log Out</Link>
+
                 </>
               ) : (
                 <Link to='/login' className='nav-link'>Login</Link>
