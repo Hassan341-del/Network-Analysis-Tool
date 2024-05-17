@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Routes, Route, useNavigate, useLocation} from 'react-router-dom'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 import Header from './Header/Header'
 import Home from './Home/Home'
 import Dashboard from './Dashboard/Dashboard'
@@ -17,13 +17,6 @@ useEffect(() => {
     setToken(storedToken);
   }
 }, []);
-
-// useEffect(() => {
-//   // Redirect to login page if token is null and user tries to access protected routes
-//   if (!token && ['/dashboard', '/scrapping', '/results'].includes(pathname)) {
-//     navigate('/login');
-//   }
-// }, [token, location, navigate]);
 
 const loginHandler = (e) => {
   e.preventDefault()

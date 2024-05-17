@@ -7,12 +7,12 @@ import './Header.css';
 export default function Header(props) {
 const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!props.token) {
-      navigate('/login');
-    }
-  }, [props.token]);
-  
+// useEffect(() => {
+//     if (!props.token) {
+//       navigate('/login');
+//     }
+//   }, [props.token]);
+
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-dark'>
