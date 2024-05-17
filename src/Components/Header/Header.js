@@ -25,7 +25,7 @@ const navigate = useNavigate();
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              {props.token ? (
+              {localStorage.getItem('token') ? (
                 <>
                   <Link to='/dashboard' className='nav-link'>Dashboard</Link>
                   <Link to='/scrapping' className='nav-link'>Scrapping</Link>

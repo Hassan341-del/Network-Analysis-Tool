@@ -6,6 +6,7 @@ import Dashboard from './Dashboard/Dashboard'
 import Login from './Login/Login'
 import Scrapping from './Scrapping/Scrapping'
 import Result from './Result/Result'
+import PrivateRoutes from './PrivateRoutes'
 export default function Container() {
   
 const [token, setToken] = useState(null)
@@ -56,16 +57,19 @@ const scrapping = (e) => {
   e.preventDefault()
   navigate('/results')
 }
+
   return (
     <>
-      <Header token={token} logout={logoutHandler} />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login login={loginHandler} />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/scrapping' element={<Scrapping scrapping={scrapping} />} />
-            <Route path='/results' element={<Result />} />
-      </Routes>
+      <Header logout={logoutHandler} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login login={loginHandler} />} />
+          <Route element={ <PrivateRoutes />} >
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/scrapping' element={<Scrapping scrapping={scrapping} />} />
+          <Route path='/results' element={<Result />} />
+          </Route>
+        </Routes>
     </>
   )
 }
