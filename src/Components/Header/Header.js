@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate} from 'react-router-dom'
 
@@ -6,23 +6,13 @@ import './Header.css';
 
 export default function Header(props) {
 const navigate = useNavigate();
-const [token, setToken] = useState(null);
-const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      setToken(storedToken);
-    }
-    setLoading(false);
-  }, []);
-
-useEffect(() => {
-    if (!token && !loading) {
+  useEffect(() => {
+    if (!props.token) {
       navigate('/login');
     }
-  }, [token, loading, navigate]);
-
+  }, [props.token]);
+  
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-dark'>
