@@ -1,18 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {useNavigate} from 'react-router-dom'
 
 import './Header.css';
 
 export default function Header(props) {
-const navigate = useNavigate();
-
-// useEffect(() => {
-//     if (!props.token) {
-//       navigate('/login');
-//     }
-//   }, [props.token]);
-
   return (
     <>
       <nav className='navbar navbar-expand-lg navbar-light bg-dark'>

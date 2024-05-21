@@ -19,7 +19,7 @@ export default function Login(props) {
                     <label htmlFor="floatingPassword">Password</label>
                   </div>
                   <div className="d-grid">
-                    <button className='btn btn-primary btn-login text-uppercase fw-bold'>Log In</button>
+                    <button className='btn btn-primary btn-login text-uppercase fw-bold' disabled={props.disabled}>Log In</button>
                   </div>
                 </form>
               </div>

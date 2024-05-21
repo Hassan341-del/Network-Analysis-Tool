@@ -6,10 +6,13 @@ import Dashboard from './Dashboard/Dashboard'
 import Login from './Login/Login'
 import Scrapping from './Scrapping/Scrapping'
 import Result from './Result/Result'
+import Accounts from './Accounts/Accounts'
 import PrivateRoutes from './PrivateRoutes'
 export default function Container() {
   
 const [token, setToken] = useState(null)
+const [disable, setDisable] = useState(0)
+const [accountData, setAccountData] = useState(null);
 const navigate = useNavigate();
 
 useEffect(() => {
@@ -18,6 +21,15 @@ useEffect(() => {
     setToken(storedToken);
   }
 }, []);
+
+useEffect(() => {
+  const accounts = () => {
+    fetch('https://dummyjson.com/todos')
+    .then(res => res.json())
+    .then(data=>setAccountData(data));
+  }
+  accounts()
+}, [])
 
 const loginHandler = (e) => {
   e.preventDefault()
@@ -45,13 +57,23 @@ const loginHandler = (e) => {
   })
   .then(console.log)
   .catch(error => console.error('Error:', error));
+  setDisable(1)
 }
 
 const logoutHandler = () => {
   localStorage.removeItem('token')
   setToken(null)
   navigate('/login')
+  setDisable(0)
 }
+
+// const accounts = () => {
+//   fetch('https://dummyjson.com/todos')
+//   .then(res => res.json())
+//   .then(data=>setAccountData(data));
+// }
+// accounts();
+// console.log(accounts,"accounts in container");
 
 const scrapping = (e) => {
   e.preventDefault()
@@ -62,12 +84,13 @@ const scrapping = (e) => {
     <>
       <Header logout={logoutHandler} />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login login={loginHandler} />} />
+          <Route path='/' element={ <Home /> } />
+          <Route path='/login' element={ <Login login={loginHandler} disabled={disable} /> } />
           <Route element={ <PrivateRoutes />} >
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/scrapping' element={<Scrapping scrapping={scrapping} />} />
-          <Route path='/results' element={<Result />} />
+          <Route path='/dashboard' element={ <Dashboard /> } />
+          <Route path='/scrapping' element={ <Scrapping scrapping={scrapping} /> } />
+          <Route path='/results' element={ <Result /> } />
+          <Route path='/accounts' element={ <Accounts accounts={accountData} /> } />
           </Route>
         </Routes>
     </>

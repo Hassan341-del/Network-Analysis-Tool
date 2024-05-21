@@ -1,5 +1,7 @@
 import React from 'react'
 import './Dashboard.css'
+import { Link } from 'react-router-dom';
+import Result from '../Result/Result'
 import Active from '../../Assests/active.webp'
 import Blocked from '../../Assests/blocked.webp'
 import Total from '../../Assests/accounts.webp'
@@ -15,6 +17,8 @@ export default function Dashboard() {
         <h2 className='page-title'>Dashboard</h2>
         <h3 style={{marginBottom: '1.5rem'}}>Overview</h3>
         <div className="parent">
+
+        <Link to='/accounts' className='text-dark text-decoration-none'>
           <div className="total-account">
             <div className="d-flex  justify-content-between align-items-center">
               <div className="number">
@@ -26,6 +30,9 @@ export default function Dashboard() {
             </div>
             <p>Total Accounts</p>
           </div>
+        </Link>
+
+        <Link to='/accounts' className='text-dark text-decoration-none'>
           <div className="active-account mx-4">
             <div className="d-flex  justify-content-between align-items-center">
               <div className="number">
@@ -37,6 +44,9 @@ export default function Dashboard() {
             </div>
               <p>Active Accounts</p>
           </div>
+        </Link>
+
+        <Link to='/accounts' className='text-dark text-decoration-none'>
           <div className="blocked-account">
             <div className="d-flex  justify-content-between align-items-center">
               <div className="number">
@@ -48,6 +58,8 @@ export default function Dashboard() {
             </div>
               <p>Blocked Account</p>
           </div>
+        </Link>
+
         </div>
         <div className="parent scrap-data">
           <div className="total-scrap-followers">

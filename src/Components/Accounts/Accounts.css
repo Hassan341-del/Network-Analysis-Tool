@@ -1,0 +1,11 @@
+.table-div {
+    width: 50%;
+}
+.table-data {
+    text-align: center;
+}
+@media(min-width:320px) and (max-width:1023px) {
+    .table-div {
+        width: 100%;
+    }
+}
