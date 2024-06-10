@@ -37,8 +37,8 @@ const loginHandler = (e) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      username: 'kminchelle',
-      password: '0lelplR',
+      username: 'emilys',
+      password: 'emilyspass',
       expiresInMins: 30,
     })
   })
@@ -55,8 +55,6 @@ const loginHandler = (e) => {
       throw new Error('Login failed');
     }
   })
-  .then(console.log)
-  .catch(error => console.error('Error:', error));
   setDisable(1)
 }
 
@@ -66,14 +64,6 @@ const logoutHandler = () => {
   navigate('/login')
   setDisable(0)
 }
-
-// const accounts = () => {
-//   fetch('https://dummyjson.com/todos')
-//   .then(res => res.json())
-//   .then(data=>setAccountData(data));
-// }
-// accounts();
-// console.log(accounts,"accounts in container");
 
 const scrapping = (e) => {
   e.preventDefault()

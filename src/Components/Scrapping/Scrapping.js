@@ -23,7 +23,7 @@ export default function Scrapping(props) {
                     <label htmlFor="floatingPassword">Following Threshold Value *</label>
                   </div>
                   <div className="d-grid">
-                    <button className='btn btn-primary text-uppercase fw-bold'>Start Scrapping</button>
+                  <button className='btn btn-primary text-uppercase fw-bold'>Start Scrapping</button>
                   </div>
                 </form>
               </div>
